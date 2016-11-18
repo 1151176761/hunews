@@ -1,0 +1,41 @@
+<div class="liebiao">
+  <input type="text" ng-model="w" class="sousuo"/>
+  <!--<a href="javascript:;" class="sou">:搜索</a>-->
+  <table class="table table-condensed">
+    <tr class="luan" >
+      <td><ul><li ng-repeat="i in data"><a href="javascript:;">{{i.title}}</a></li></ul></td>
+    </tr>
+    <tr  ng-repeat="i in data|filter:w" ng-click="dj($index)" ng-class="{'ye':i==$index}" ng-class-even="bianse">
+      <td><a class="font_s" href="javascript:;" ng-repeat="i in data"><img ng-src="{{i.img}}"/>{{i.title}}</a></td>
+      <td><span ng-click="del(x)"><a href="javascript:;"><img src="images/xiugai.png"></a></span></td>
+      <td><button ng-click="edit(x)" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit"></span>edit</button></td>
+    </tr>
+  </table>
+  <!--<div ng-hide='f'>-->
+  <!--<input ng-model="updata.name" type="text" class="diyi"/>-->
+  <!--<input ng-model="updata.co" type="text" class="dier"/>-->
+  <!--<button ng-click="add(updata)" class="disan">修改</button>-->
+  <!--</div>-->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">修改</h4>
+        </div>
+        <div class="modal-body">
+          <input ng-model="editData.name">
+          <input ng-model="editData.co">
+        </div>
+        <div class="modal-footer">
+
+          <button ng-click="editSave()" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <input ng-model="updata.name" type="text" class="diyi"/>
+  <input ng-model="updata.co" type="text" class="dier"/>
+  <button ng-click="baocun(updata)" class="disan">提交</button>
+</div>
